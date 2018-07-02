@@ -39,9 +39,59 @@ const changePassword = function (data) {
   })
 }
 
+const createEntry = function (data) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/entries',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    // contentType: 'application/json',
+    data: data
+  })
+}
+
+const getEntries = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/entries',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const deleteEntry = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/entries/' + data.entry.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const editEntry = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/entries/' + data.entry.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    // contentType: 'application/json',
+    data: data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  createEntry,
+  getEntries,
+  deleteEntry,
+  editEntry
 }

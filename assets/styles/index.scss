@@ -5,12 +5,25 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $primary-background: #e5f5ff;
 $logo-color-background: #c2e8fb;
 
-.logo-main {
+.form-group {
+  padding-top: 10px;
+}
+
+.logo-main,
+.message-main {
   background: radial-gradient($primary-background, $logo-color-background 60%);
   margin-top: 20px;
   padding: 50px;
   text-align: center;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.col {
+  float: left;
+  width: 30%;
+  margin-right: 20px;
+  margin-left: 1px;
 }
 
 h1 {
@@ -22,9 +35,10 @@ body {
   background-color: $primary-background;
 }
 
+// modal
 * { box-sizing: border-box; }
 
-input[type=text],
+input[type=email],
 input[type=password] {
   width: 100%;
   padding: 15px;
@@ -35,7 +49,7 @@ input[type=password] {
 }
 
 /* Add a background color when the inputs get focus */
-input[type=text]:focus,
+input[type=email]:focus,
 input[type=password]:focus {
   background-color: #ddd;
   outline: none;
@@ -51,6 +65,7 @@ button {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  border-radius: 10px;
 }
 
 button:hover {
@@ -75,6 +90,12 @@ button:hover {
   padding: 16px;
 }
 
+#sign-up {
+  width: 100%;
+  height: 100%;
+  position: center;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -82,8 +103,8 @@ button:hover {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100% auto; /* Full width */
+  height: 100% auto; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: #70798c;
   padding-top: 50px;
@@ -92,9 +113,10 @@ button:hover {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15%; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  padding: 10px;
 }
 
 /* Style the horizontal ruler */
