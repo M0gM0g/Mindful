@@ -37,9 +37,46 @@ const onChangePassword = function (event) {
     .catch(authUi.changePasswordFailure)
 }
 
+const onCreateEntry = function (event) {
+  event.preventDefault()
+
+  const data = getFormFields(event.target)
+  authApi.createEntry(data)
+    .then(authUi.createEntrySuccess)
+    .catch(authUi.createEntryFailure)
+}
+
+const onGetEntries = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.getEntries(data)
+    .then(authUi.getEntriesSuccess)
+    .catch(authUi.getEntriesFailure)
+}
+
+const onDeleteEntry = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.deleteEntry(data)
+    .then(authUi.deleteEntrySuccess)
+    .catch(authUi.deleteEntryFailure)
+}
+
+const onEditEntry = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  authApi.editEntry(data)
+    .then(authUi.editEntrySuccess)
+    .catch(authUi.editEntryFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onCreateEntry,
+  onGetEntries,
+  onDeleteEntry,
+  onEditEntry
 }
