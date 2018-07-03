@@ -40,7 +40,9 @@ const onChangePassword = function (event) {
 const onCreateEntry = function (event) {
   event.preventDefault()
 
+  const tableButtonData = $('#tableButton').text()
   const data = getFormFields(event.target)
+  data.entry.distortion = tableButtonData
   authApi.createEntry(data)
     .then(authUi.createEntrySuccess)
     .catch(authUi.createEntryFailure)
