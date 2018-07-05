@@ -42,7 +42,6 @@ const clearModalAlert = function (event) {
 }
 
 const signUpSuccess = function (event) {
-  console.log('sign up worked')
   $('#sign-in, #sign-in-button').show()
   $('#sign-up, #sign-up-button').hide()
   resetAllForms()
@@ -52,7 +51,6 @@ const signUpSuccess = function (event) {
 const signUpError = function (event) {
   $('.modal-alert').text('There was an error signing up. Try again.')
   resetAllForms()
-  console.log('sign up failed')
 }
 
 const signInSuccess = function (data) {
@@ -70,7 +68,6 @@ const signInSuccess = function (data) {
 }
 
 const signInError = function (event) {
-  console.log('sign IN error')
   $('.modal-alert').text('There was an error signing in. Try again.')
   resetAllForms()
 }
@@ -87,7 +84,6 @@ const signOutSuccess = function (event) {
 }
 
 const signOutFailure = function (event) {
-  console.log('sign OUT failure')
   $('.modal-alert').text('There was an error signing out. Try again.')
   resetAllForms()
   clearModalAlert()
@@ -128,7 +124,6 @@ const getEntriesSuccess = function (data) {
 }
 
 const getEntriesFailure = function (event) {
-  console.log('get entries failed')
   $('.modal-alert').text('There was an error. Try again.')
 }
 
@@ -149,8 +144,9 @@ const editEntrySuccess = function (event) {
 }
 
 const editEntryFailure = function (error) {
-  console.log(error)
-  $('.modal-alert').text('There was an error. Try again.')
+  $('#edit-alert').text('There was an error. Try again.')
+  resetAllForms()
+  clearModalAlert()
 }
 
 module.exports = {
