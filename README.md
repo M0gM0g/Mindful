@@ -1,74 +1,72 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Project Title
 
-# browser-template
+Mindful.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+## App Description
 
-## Installation
+Mindful is a full stack cognitive behavioral therapy application.
+Wikipedia can describe it better than I can:
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+Cognitive-behavioral therapy (CBT) is a psycho-social interventionthat is the most widely used evidence-based practice aimed at improving mental health. Guided by empirical research, CBT focuses on the development of personal coping strategies that target solving current problems and changing unhelpful patterns in cognitions. (e.g. thoughts, beliefs, and attitudes), behaviors, and emotional regulation. It was originally designed to treat depression, and is now used for a number of mental health conditions, for example anxiety.
 
-## Structure
+It's based on the book 'Feeling Good' by David Burns. Essentially,
+the user will use this application to record their 'Automatic thought', then identify which 'Cognitive Distortion' that applies to it. Finally the user will provide a 'Rational Response' to the thought.
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+It's an idea I've been wanting to create as a tool for people that are looking for another way to combat stress, anxiety and depression. Mindufl is a simply, easy to understand way to wrap your brain around WHY you feel a certain way and how to find your way out. It's a great accompaniment for anyone looking to slow down and retrain their brain to think more clearly about situations.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+### How to Use
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+Simply create an account and log it. Create, delete, view and update entries.
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+### User Stories
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+-As a user I want to be able to easily navigate through the application.
+-As a user I want to be prompted by easy to understand directions.
+-As a user I want to be able to store and retrieve my entries.
+-As a user I want to be able to track my progress.
+-As a user I would like to assign a simple rating system to my entries
 
-## Tasks
+### Wireframe and ERD
 
-Developers should run these often!
+ERD:
+<a href="https://imgur.com/KQZfL2N"><img src="https://i.imgur.com/KQZfL2N.jpg" title="source: imgur.com" /></a>
 
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
 
-## Additional Resources
+Wireframe:
+<a href="https://imgur.com/UD8YCt0"><img src="https://i.imgur.com/UD8YCt0.jpg" title="source: imgur.com" /></a>
 
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
 
-## [License](LICENSE)
+## Planning
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+I started with creating the back end tables and tested them with curl scripts to
+ensure that they worked. Once I had routes for the back end, I began creating the
+front end. I tried to commit at least once a day.
+
+
+## Technologies Used
+
+HTML
+SCSS
+jQUERY
+JavaScript
+GIT/GITHUB
+SASS
+RAILS
+RUBY
+Bootstrap
+handlebars
+
+## User Stories
+
+-As a user I want to be able to easily navigate through the application.
+-As a user I want to be prompted by easy to understand directions.
+-As a user I want to be able to store and retrieve my entries.
+-As a user I want to be able to track my progress.
+-As a user I would like to assign a simple rating system to my entries
+
+
+## Future Additions
+
+In the future I would like to add a date option to enter and sort. I would
+also like to add more details and documentation on key vocabulary words
+so the user has a better understanding of how to use the app.
