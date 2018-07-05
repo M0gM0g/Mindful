@@ -28,7 +28,7 @@ const exitEntries = function (event) {
   $('#sign-out').show()
   $('#sign-in, #sign-up, #sign-in-button, #sign-up-button, .get-entries-view, #exit-entries, #delete-id-form, #edit-form').hide()
   $('#change-password-button').show()
-  $('#entry-button, #get-entries, #edit-button, #delete-entry-button').show()
+  $('#entry-button, #get-entries, #edit-button, #delete-entry-button, .message-main').show()
   $('#delete-message, #edit-alert').text('')
   resetAllForms()
 }
