@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Mindful</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -26,16 +26,28 @@
 
 <!-- message box -->
 <div class="message-main" class="col">
-<h4>Welcome to Mindful.  </h4>
+<!-- <h3 id="welcome"> Welcome to Mindful.  </h3> -->
+<h4 id="come-back"> Come back anytime. We'll be here.  </h4>
+<h4 id="intro"> Mindful is a place to get your thoughts out... </h4>
+<h3 id="welcome"> Welcome to Mindful.  </h3>
+<h4 id="intro2"> and help you better understand why they were there in the first place... </h4>
 </div>
 <!-- message box -->
 
 
+<div class="get-entries-view" class="col">
+<h3></h3>
+</div>
+<div>
+<button class="button" id="exit-entries">Exit</button>
+</div>
+
+<div class="col" class="my-entries">
+</div>
 
 
 
-
-<button id="entry-button" onclick="document.getElementById('entry').style.display='block'">Create an entry</button>
+<button class="button" id="entry-button" onclick="document.getElementById('entry').style.display='block'">Create an entry</button>
 
 
 <div id="entry" class="modal">
@@ -49,28 +61,53 @@
       <input type="text" placeholder="Enter Automatic Thought" name="credentials[email]" required> -->
 
 
-        <label for="automatic-thought">Automatic Thought</label>
-        <input type="text" class="form-control" rows="5" name="entry[thought]" id="thought">
+      <span data-toggle="tooltip" data-placement="top" title="Write down the cause and feeling of your emotional distress." class="label label-default">Automatic Thought</span>
+        <input type="text" class="form-control" name="entry[thought]" id="thought" required>
 
 
-        <label for="distortion">Distortion</label>
-        <input type="text" class="form-control" rows="5" name="entry[distortion]" id="distortion">
 
 
-    <label for="rational-response">Rational Response</label>
-    <input type="text" class="form-control" rows="5" name="entry[response]" id="response">
+        <span data-toggle="tooltip" data-placement="top" title="All-or-Nothing Thinking -- Overgeneralization -- Mental Filter -- Disqualifying the Positive -- Jumping to Conclusions -- Magnification/Minimization -- Emotional Reasoning -- Should Statement -- Labeling/Mislabeling -- Personalization" class="label label-default">Cognitive Distortion</span>
+          <input type="text" class="form-control" name="entry[distortion]" id="distortion" required>
+
+        <!-- <div id="tableDiv" class="dropdown">
+          <button id="tableButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" required>Select Distortion <span class="caret"></span>
+        </button>
+          <ul id="tableMenu" class="dropdown-menu" name="entry[distortion]">
+
+            <li><a href="#">All-or-Nothing Thinking</a></li>
+            <li><a href="#">Overgeneralization</a></li>
+            <li><a href="#">Mental Filter</a></li>
+            <li><a href="#">Disqualifying the Positive</a></li>
+            <li><a href="#">Jumping to Conclusions</a></li>
+            <li><a href="#">Magnification/Minimization</a></li>
+            <li><a href="#">Emotional Reasoning</a></li>
+            <li><a href="#">Should Statements</a></li>
+            <li><a href="#">Labeling/Mislabeling</a></li>
+            <li><a href="#">Personalization</a></li>
+            <li><a href="#">Labeling/Mislabeling</a></li>
+          </ul>
+        </div> -->
+
+        <!-- <span data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="label label-default">Distoriton</span>
+        <input type="text" class="form-control" name="entry[distortion]" id="distortion"> -->
 
 
-    <label for="date">date</label>
-    <input type="text" class="form-control" rows="5" name="entry[date]" id="date">
+        <span data-toggle="tooltip" data-placement="top" title="Write a more rational, less upsetting response here. Make sure you believe in your rebuttal to self-criticism. This rational response can take into account what was illogical and erroneous about your self-critical automatic thought." class="label label-default">Rational Response</span>
+    <input type="text" class="form-control"  name="entry[response]" id="response" required>
+
+
+<!-- <span data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="label label-default">Date</span>
+
+    <input type="text" class="form-control"  name="entry[date]" id="date"> -->
 
 
 
 
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('entry').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="submit">Submit</button>
+        <button id="reset" class="button" type="button" onclick="document.getElementById('entry').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="submit">Submit</button>
       </div>
     <!-- </div> -->
   </form>
@@ -79,7 +116,7 @@
 
 
 <div>
-<button id="get-entries">Get Entries</button>
+<button class="button" id="get-entries">Get Entries</button>
 </div>
 
 <!-- <div>
@@ -87,75 +124,72 @@
 </div> -->
 
 
-<button id="delete-entry-button" onclick="document.getElementById('delete').style.display='block'">Delete an entry</button>
+<!-- <button class="button" id="delete-entry-button" onclick="document.getElementById('delete').style.display='block'">Delete an entry</button> -->
 
 
-<div id="delete" class="modal">
+<!-- <div id="delete" class="modal">
   <form id="delete-entry-form" class="modal-content" action="/action_page.php">
-    <!-- <div class="container"> -->
+     <div class="container">
       <h1>Delete Entry</h1>
-      <p>Please fill out this form to delete an entry.</p>
+      <p>Type the id number to confirm:</p>
+      <p id="data-id-number"></p>
       <p class='modal-alert'></p>
-      <hr>
+      <hr> -->
       <!-- <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Automatic Thought" name="credentials[email]" required> -->
 
+<form class="my-entry" id="delete-id-form">
+  <p id="delete-message"></p>
+        <label for="delete-entry">Delete Entry Number</label>
+        <input class="my-entry" type="text" class="form-control" name="entry[id]" id="id" required>
+        <button class="button" type="submit" class="submit">Delete</button>
+        <button id="reset7" class="button" type="click" class="click">Refresh</button>
+</form>
 
-        <label for="delete-entry">Delete Entry</label>
-        <input type="text" class="form-control" name="entry[id]" id="delete-id">
 
-
-
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('delete').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="submit">Submit</button>
+      <!-- <div class="clearfix">
+        <button id="reset1" class="button" type="button" onclick="document.getElementById('delete').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="submit">Delete Entry</button>
       </div>
-    <!-- </div> -->
+     </div>
   </form>
-</div>
+</div> -->
 
 
-<button id="edit-button" onclick="document.getElementById('edit').style.display='block'">Edit an entry</button>
+<!-- <button class="button" id="edit-button" onclick="document.getElementById('edit').style.display='block'">Edit an entry</button> -->
 
 
-<div id="edit" class="modal">
-  <form id="edit-form" class="modal-content" action="/action_page.php">
+
+
+
+
+  <form class="my-entry" id="edit-form">
     <!-- <div class="container"> -->
-      <h1>Edit an entry</h1>
+      <h1>Edit</h1>
       <p>Please fill out this form to edit an entry.</p>
-      <p class='modal-alert'></p>
-      <hr>
+      <p id='edit-alert'></p>
       <!-- <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Automatic Thought" name="credentials[email]" required> -->
 
+      <span data-toggle="tooltip" data-placement="top" title="Enter the id # you wish to change." class="label label-default">Thought ID</span>
+      <input class="my-entry" type="text" class="form-control" name="entry[id]" id="id-edit" required>
 
-        <label for="edit-entry">Edit Entry</label>
-        <input type="text" class="form-control" name="entry[id]" id="edit-id">
-
-        <label for="automatic-thought">Automatic Thought</label>
-        <input type="text" class="form-control" name="entry[thought]" id="thought-edit">
-
-
-        <label for="distortion">Distortion</label>
-        <input type="text" class="form-control" name="entry[distortion]" id="distortion-edit">
+      <span data-toggle="tooltip" data-placement="top" title="Write down the cause and feeling of your emotional distress." class="label label-default">Automatic Thought</span>
+      <input class="my-entry" type="text" class="form-control" name="entry[thought]" id="thought-edit" required>
 
 
-    <label for="rational-response">Rational Response</label>
-    <input type="text" class="form-control" name="entry[response]" id="response-edit">
-
-
-    <label for="date">date</label>
-    <input type="text" class="form-control" name="entry[date]" id="date-edit">
+        <span data-toggle="tooltip" data-placement="top" title="All-or-Nothing Thinking -- Overgeneralization -- Mental Filter -- Disqualifying the Positive -- Jumping to Conclusions -- Magnification/Minimization -- Emotional Reasoning -- Should Statement -- Labeling/Mislabeling -- Personalization" class="label label-default">Cognitive Distortion</span>
+        <input class="my-entry" type="text" class="form-control" name="entry[distortion]" id="distortion-edit" required>
 
 
 
+        <span data-toggle="tooltip" data-placement="top" title="Write a more rational, less upsetting response here. Make sure you believe in your rebuttal to self-criticism. This rational response can take into account what was illogical and erroneous about your self-critical automatic thought." class="label label-default">Rational Response</span>
+    <input class="my-entry" type="text" class="form-control"  name="entry[response]" id="response-edit" required>
 
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('edit').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="submit">Submit</button>
-      </div>
-    <!-- </div> -->
-  </form>
+  <button id="edit" class="button" type="submit" class="submit">Edit</button>
+
+</form>
+
 </div>
 
 
@@ -168,7 +202,7 @@
 
 
 <!-- modal button sign up -->
-<button id="sign-up-button" onclick="document.getElementById('sign-up').style.display='block'">Sign Up</button>
+<button class="button" id="sign-up-button" onclick="document.getElementById('sign-up').style.display='block'">Sign Up</button>
 <!-- modal button sign up -->
 
 <!-- The Modal (contains the Sign Up form) -->
@@ -191,8 +225,8 @@
 
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('sign-up').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signup">Sign Up</button>
+        <button id="reset5" class="button" type="button" onclick="document.getElementById('sign-up').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="signup">Sign Up</button>
       </div>
     <!-- </div> -->
   </form>
@@ -203,7 +237,7 @@
 
 
 <!-- modal button sign in -->
-<button id="sign-in-button" onclick="document.getElementById('sign-in').style.display='block'">Sign In</button>
+<button class="button" id="sign-in-button" onclick="document.getElementById('sign-in').style.display='block'">Sign In</button>
 <!-- modal button sign in -->
 
 <!-- The Modal (contains the Sign In form) -->
@@ -222,21 +256,21 @@
 
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('sign-in').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signin">Sign In</button>
+        <button id="reset3" class="button" type="button" onclick="document.getElementById('sign-in').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="signin">Sign In</button>
       </div>
     <!-- </div> -->
   </form>
 </div>
 
 <div>
-<button id="sign-out">Sign Out</button>
+<button class="button" id="sign-out">Sign Out</button>
 </div>
 
 
 
 <!-- change password button -->
-<button id="change-password-button" onclick="document.getElementById('change-password').style.display='block'">Change Password</button>
+<button class="button" id="change-password-button" onclick="document.getElementById('change-password').style.display='block'">Change Password</button>
 <!-- change password button -->
 
 <!-- change password  -->
@@ -256,8 +290,8 @@
 
 
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('sign-in').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" class="change-password">Change Password</button>
+        <button id="reset4" class="button" type="button" onclick="document.getElementById('change-password').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="change-password">Change Password</button>
       </div>
     <!-- </div> -->
   </form>

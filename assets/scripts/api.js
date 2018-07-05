@@ -68,8 +68,8 @@ const deleteEntry = function (data) {
     url: config.apiUrl + '/entries/' + data.entry.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: data
+    }
+    // data: data
   })
 }
 

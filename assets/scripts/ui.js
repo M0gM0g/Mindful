@@ -1,8 +1,40 @@
 'use script'
 const store = require('./store')
+const getEntryHandlebars = require('./templates/entry-listing.handlebars')
+
+const refreshWelcome = function () {
+  $('#welcome').hide()
+  $('#come-back').fadeIn(2000)
+  $('#come-back').fadeOut(6000)
+  $('#welcome').delay(4000).fadeIn(4500)
+}
+
+const introWelcome = function () {
+  $('#welcome').hide()
+  $('#intro').fadeTo(5000, 100)
+  $('#intro2').delay(3000).fadeTo(3000, 100)
+  $('#intro').delay(1000).fadeTo(2000, 0)
+  $('#intro2').delay(1000).fadeTo(2000, 0)
+  $('#welcome').delay(9000).fadeIn(4000)
+}
+
+const getTableData = function (a) {
+  event.preventDefault()
+  const selText = $(this).text()
+  $('#tableButton').text(selText)
+}
+
+const exitEntries = function (event) {
+  $('#sign-out').show()
+  $('#sign-in, #sign-up, #sign-in-button, #sign-up-button, .get-entries-view, #exit-entries, #delete-id-form, #edit-form').hide()
+  $('#change-password-button').show()
+  $('#entry-button, #get-entries, #edit-button, #delete-entry-button').show()
+  $('#delete-message, #edit-alert').text('')
+  resetAllForms()
+}
 
 const resetAllForms = function (event) {
-  $('#sign-in-form, #sign-up-form, #change-password-form').trigger('reset')
+  $('#sign-in-form, #sign-up-form, #change-password-form, #edit-form, #delete-entry-form, #entry-form, #entry, #entry-form, #delete-id-form, #edit-form').trigger('reset')
 }
 
 const clearModalAlert = function (event) {
@@ -25,16 +57,16 @@ const signUpError = function (event) {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#sign-out').show()
+  introWelcome()
+  $('#sign-out, .message-main').show()
   $('#sign-in, #sign-up, #sign-in-button, #sign-up-button').hide()
   // $('#sign-up').hide()
   // $('#sign-in-button').hide()
   // $('#sign-up-button').hide()
   $('#change-password-button').show()
-  $('#entry-button').show()
+  $('#entry-button, #get-entries, #edit-button, #delete-entry-button').show()
   resetAllForms()
   clearModalAlert()
-  console.log('sign IN worked')
 }
 
 const signInError = function (event) {
@@ -45,10 +77,11 @@ const signInError = function (event) {
 
 const signOutSuccess = function (event) {
   delete store.user
-  console.log('sign OUT success!')
   $('#sign-out, #change-password, #change-password-button, #change-password').hide()
   $('#sign-in-button, #sign-up-button').show()
-  $('#entry-button').hide()
+  $('#entry-button,#get-entries, #edit-button, #delete-entry-button, .get-entries-view').hide()
+  // setTimeout(refreshWelcome, 5000)
+  refreshWelcome()
   resetAllForms()
   clearModalAlert()
 }
@@ -61,52 +94,63 @@ const signOutFailure = function (event) {
 }
 
 const changePasswordSuccess = function (event) {
+  clearModalAlert()
   $('#sign-out').show()
   $('#change-password-button').show()
   $('#change-password').hide()
   resetAllForms()
-
-  console.log('change password worked!')
 }
 
 const changePasswordFailure = function (event) {
-  console.log('change password FAILED')
-  $('.modal-alert').text('There was an error signing out. Try again.')
+  clearModalAlert()
+  $('.modal-alert').text('There was an error. Try again.')
+  resetAllForms()
+}
+
+const createEntrySuccess = function (event) {
+  $('.modal-alert').text('You just created an entry!')
+  $('#entry').css('display', 'none')
   resetAllForms()
   clearModalAlert()
 }
 
-const createEntrySuccess = function (event) {
-  console.log('create entry WORKED')
-}
-
 const createEntryFailure = function (event) {
-  console.log('create entry FAILED')
+  $('.modal-alert').text('There was an error. Try again.')
 }
 
 const getEntriesSuccess = function (data) {
-  console.log(data.entries)
+  $('.get-entries-view, #exit-entries, #delete-id-form, #edit-form').show()
+  clearModalAlert()
+  const getEntryHtml = getEntryHandlebars({ entries: data.entries })
+  $('.get-entries-view').html(getEntryHtml)
+  $('#sign-out, #change-password, #change-password-button, #entry-button, #get-entries, #delete-entry-button, .message-main').hide()
+  $('#delete-message').text('')
 }
 
 const getEntriesFailure = function (event) {
   console.log('get entries failed')
+  $('.modal-alert').text('There was an error. Try again.')
 }
 
 const deleteEntrySuccess = function (event) {
-  console.log('delete entry worked!')
+  $('#delete-message').text('Successfuly deleted.')
+  resetAllForms()
+  clearModalAlert()
 }
 
 const deleteEntryFailure = function (event) {
-  console.log('delete entry FAILED')
+  $('#delete-message').text('Something went wrong. Try again.')
 }
 
-const editEntrySuccess = function (data) {
-  console.log('edit entry worked!')
-  console.log(data.entries)
+const editEntrySuccess = function (event) {
+  $('#edit-alert').text('You successfuly edited this entry!')
+  resetAllForms()
+  clearModalAlert()
 }
 
 const editEntryFailure = function (error) {
   console.log(error)
+  $('.modal-alert').text('There was an error. Try again.')
 }
 
 module.exports = {
@@ -127,5 +171,10 @@ module.exports = {
   deleteEntrySuccess,
   deleteEntryFailure,
   editEntrySuccess,
-  editEntryFailure
+  editEntryFailure,
+  getEntryHandlebars,
+  exitEntries,
+  getTableData,
+  refreshWelcome,
+  introWelcome
 }
