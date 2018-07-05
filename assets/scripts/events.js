@@ -3,6 +3,12 @@ const authUi = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
 const authApi = require('./api')
 
+// const passId = function (event) {
+//   event.preventDefault()
+//   const passTheId = $(event.target).attr('data-id')
+//   $('#data-id-number').val(passTheId)
+// }
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -40,9 +46,7 @@ const onChangePassword = function (event) {
 const onCreateEntry = function (event) {
   event.preventDefault()
 
-  const tableButtonData = $('#tableButton').text()
   const data = getFormFields(event.target)
-  data.entry.distortion = tableButtonData
   authApi.createEntry(data)
     .then(authUi.createEntrySuccess)
     .catch(authUi.createEntryFailure)
@@ -58,6 +62,10 @@ const onGetEntries = function (event) {
 
 const onDeleteEntry = function (event) {
   event.preventDefault()
+  // const entryId = $(event.target).closest('button').attr('data-id')
+  // const entryId = $(event.target).('data-id')
+  // const data = $(event.target).attr('data-id')
+
   const data = getFormFields(event.target)
   authApi.deleteEntry(data)
     .then(authUi.deleteEntrySuccess)

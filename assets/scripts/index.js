@@ -16,7 +16,7 @@ const authUi = require('./ui')
 // })
 
 $(document).ready(function () {
-  $('#reset, #reset1, #reset2, #reset3, #reset4, #reset5').click(function () {
+  $('#reset, #reset1, #reset2, #reset3, #reset4, #reset5, #reset6, #reset7, #reset8, #reset9').click(function () {
     $('input').val('')
   })
 })
@@ -31,11 +31,12 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
+$('#come-back, #intro, #intro2, .message-main, #edit-form').hide()
 $('#sign-out, .get-entries-view, #exit-entries').hide()
 $('#change-password, #change-password-button').hide()
-$('#entry-button').hide()
+$('#entry-button, #delete-id-form').hide()
 $('#get-entries, #delete-entry-button, #edit-button').hide()
-
+// $('#submit-delete').on('click', authEvents.onDeleteEntry)
 $(() => {
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
@@ -43,11 +44,12 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#entry').on('submit', authEvents.onCreateEntry)
   $('#get-entries').on('click', authEvents.onGetEntries)
-  $('#delete').on('submit', authEvents.onDeleteEntry)
-  $('#edit').on('submit', authEvents.onEditEntry)
+  $('#delete-id-form').on('submit', authEvents.onDeleteEntry)
+  $('#edit-form').on('submit', authEvents.onEditEntry)
   $('.cancelbtn').on('click', authUi.resetAllForms)
-  $('.cancelbtn').on('click', authUi.clearModalAlert)
+  $('#reset4, #reset3, #reset2, #reset, #reset5').on('click', authUi.clearModalAlert)
   $('#exit-entries').on('click', authUi.exitEntries)
-  $('#tableMenu a').on('click', authUi.getTableData)
+  $('#reset7').on('click', authEvents.onGetEntries)
+  // $('#tableMenu a').on('click', authUi.getTableData)
   // $('#exit-entries').on('click', authUi.clearModal)
 })

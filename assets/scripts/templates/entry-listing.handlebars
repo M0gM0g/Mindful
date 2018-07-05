@@ -1,15 +1,11 @@
 {{#each entries as |entry|}}
   {{log entry}}
 
-
+  <h4 data-id="{{entry.id}}" class="my-entry">Entry Number: {{entry.id}}</h4>
 <h4 data-id="{{entry.id}}" class="my-entry">Thought: {{entry.thought}}</h4>
   <h4 data-id="{{entry.id}}" class="my-entry">Cognitive Distortion: {{entry.distortion}}</h4>
     <h4 data-id="{{entry.id}}" class="my-entry">Rational Response: {{entry.response}}</h4>
-      <h4 data-id="{{entry.id}}" class="my-entry">Date: {{entry.date}}</h4>
 
-        <button class="delete-entry-button" onclick="document.getElementById('delete').style.display='block'">Delete Entry</button>
-<button class="edit-entry-button" onclick="document.getElementById('edit').style.display='block'">Edit Entry</button>
-        <!-- <button class="button" type="submit">Remove</button> -->
-
+<hr/>
 
       {{/each}}
