@@ -143,7 +143,7 @@ const editEntrySuccess = function (event) {
   clearModalAlert()
 }
 
-const editEntryFailure = function (error) {
+const editEntryFailure = function (event) {
   $('#edit-alert').text('There was an error. Try again.')
   resetAllForms()
   clearModalAlert()
