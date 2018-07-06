@@ -16,7 +16,7 @@ const authUi = require('./ui')
 // })
 
 $(document).ready(function () {
-  $('#reset, #reset1, #reset2, #reset3, #reset4, #reset5, #reset6, #reset7, #reset8, #reset9, #reset10').click(function () {
+  $('#reset, #reset1, #reset2, #reset3, #reset4, #reset5, #reset6, #reset7, #reset8, #reset9').click(function () {
     $('input').val('')
   })
 })

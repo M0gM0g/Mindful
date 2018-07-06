@@ -106,6 +106,7 @@ const changePasswordFailure = function (event) {
 const createEntrySuccess = function (event) {
   $('.modal-alert').text('You just created an entry!')
   $('#entry').css('display', 'none')
+  $('input').val('')
   resetAllForms()
   clearModalAlert()
 }
