@@ -1,7 +1,10 @@
 # Project Title
 
 Mindful.
+Please visit: https://m0gm0g.github.io/full-stack-front/
 
+Back end README: https://github.com/M0gM0g/mindful-api/blob/master/README.md
+API deployed link: https://mindful-api-1.herokuapp.com/
 ## App Description
 
 Mindful is a full stack cognitive behavioral therapy application.
@@ -34,6 +37,7 @@ ERD:
 
 Wireframe:
 <a href="https://imgur.com/UD8YCt0"><img src="https://i.imgur.com/UD8YCt0.jpg" title="source: imgur.com" /></a>
+
 
 
 ## Planning
