@@ -68,7 +68,7 @@ const onDeleteEntry = function (event) {
 
   const data = getFormFields(event.target)
   authApi.deleteEntry(data)
-    .then(authUi.deleteEntrySuccess)
+    .then(authUi.deleteEntrySuccess, authUi.getEntriesSuccess(data))
     .catch(authUi.deleteEntryFailure)
 }
 
@@ -76,7 +76,7 @@ const onEditEntry = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   authApi.editEntry(data)
-    .then(authUi.editEntrySuccess)
+    .then(authUi.editEntrySuccess, authUi.getEntriesSuccess(data))
     .catch(authUi.editEntryFailure)
 }
 

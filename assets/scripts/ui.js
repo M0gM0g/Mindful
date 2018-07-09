@@ -129,7 +129,6 @@ const getEntriesFailure = function (event) {
 }
 
 const deleteEntrySuccess = function (event) {
-  $('#delete-message').text('Successfuly deleted.Please click refresh.')
   resetAllForms()
   clearModalAlert()
 }
@@ -139,7 +138,6 @@ const deleteEntryFailure = function (event) {
 }
 
 const editEntrySuccess = function (event) {
-  $('#edit-alert').text('You successfuly edited this entry. Please click refresh.')
   resetAllForms()
   clearModalAlert()
 }
