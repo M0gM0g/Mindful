@@ -34,7 +34,7 @@ const exitEntries = function (event) {
 }
 
 const resetAllForms = function (event) {
-  $('#sign-in-form, #sign-up-form, #change-password-form, #edit-form, #delete-entry-form, #entry-form, #entry, #entry-form, #delete-id-form, #edit-form').trigger('reset')
+  $('#sign-in-form, #sign-up-form, #change-password-form, #edit-form, #delete-entry-form, #entry-form, #entry, #entry-form, #delete-id-form, #edit-form, #reset, #reset1, #reset2, #reset3, #reset4, #reset5, #reset6, #reset7, #reset8, #reset9').trigger('reset')
 }
 
 const clearModalAlert = function (event) {
@@ -43,7 +43,7 @@ const clearModalAlert = function (event) {
 
 const signUpSuccess = function (event) {
   $('#sign-in, #sign-in-button').show()
-  $('#sign-up, #sign-up-button').hide()
+  $('#sign-up').hide()
   resetAllForms()
   clearModalAlert()
 }
@@ -104,10 +104,10 @@ const changePasswordFailure = function (event) {
 }
 
 const createEntrySuccess = function (event) {
-  $('.modal-alert').text('You just created an entry!')
   $('#entry').css('display', 'none')
   resetAllForms()
   clearModalAlert()
+  $('input').val('')
 }
 
 const createEntryFailure = function (event) {
@@ -121,20 +121,23 @@ const getEntriesSuccess = function (data) {
   $('.get-entries-view').html(getEntryHtml)
   $('#sign-out, #change-password, #change-password-button, #entry-button, #get-entries, #delete-entry-button, .message-main').hide()
   $('#delete-message').text('')
+  $('input').val('')
 }
 
 const getEntriesFailure = function (event) {
   $('.modal-alert').text('There was an error. Try again.')
+  $('input').val('')
 }
 
 const deleteEntrySuccess = function (event) {
-  $('#delete-message').text('Successfuly deleted.Please click refresh.')
+  $('#delete-message').text('Successfuly deleted. Please click refresh.')
   resetAllForms()
   clearModalAlert()
 }
 
 const deleteEntryFailure = function (event) {
-  $('#delete-message').text('Something went wrong. Try again.')
+  $('#delete-message').text('Entry may not exist. Try again.')
+  $('input').val('')
 }
 
 const editEntrySuccess = function (event) {
@@ -144,7 +147,7 @@ const editEntrySuccess = function (event) {
 }
 
 const editEntryFailure = function (event) {
-  $('#edit-alert').text('There was an error. Try again.')
+  $('#edit-alert').text('Entry may not exist. Try again.')
   resetAllForms()
   clearModalAlert()
 }
