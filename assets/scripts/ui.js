@@ -120,12 +120,12 @@ const getEntriesSuccess = function (data) {
   const getEntryHtml = getEntryHandlebars({ entries: data.entries })
   $('.get-entries-view').html(getEntryHtml)
   $('#sign-out, #change-password, #change-password-button, #entry-button, #get-entries, #delete-entry-button, .message-main').hide()
-  $('#delete-message').text('')
+  $('#delete-message, #edit-alert').text('')
   $('input').val('')
 }
 
 const getEntriesFailure = function (event) {
-  $('.modal-alert').text('There was an error. Try again.')
+  $('.modal-alert').text('There was an error. Click refresh.')
   $('input').val('')
 }
 
@@ -137,7 +137,7 @@ const deleteEntrySuccess = function (event) {
 }
 
 const deleteEntryFailure = function (event) {
-  $('#delete-message').text('Entry may not exist. Try again.')
+  $('#delete-message').text('Entry may not exist. Click refresh.')
   $('input').val('')
 }
 
@@ -148,7 +148,7 @@ const editEntrySuccess = function (event) {
 }
 
 const editEntryFailure = function (event) {
-  $('#edit-alert').text('Entry may not exist. Try again.')
+  $('#edit-alert').text('Entry may not exist. Click refresh.')
   resetAllForms()
   clearModalAlert()
 }
