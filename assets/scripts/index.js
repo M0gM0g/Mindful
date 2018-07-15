@@ -49,7 +49,7 @@ $(() => {
   $('.cancelbtn').on('click', authUi.resetAllForms)
   $('#reset4, #reset3, #reset2, #reset, #reset5').on('click', authUi.clearModalAlert)
   $('#exit-entries').on('click', authUi.exitEntries)
-  $('#reset7').on('click', authEvents.onGetEntries)
+  // $('#reset7').on('click', authEvents.onGetEntries)
   // $('#tableMenu a').on('click', authUi.getTableData)
   // $('#exit-entries').on('click', authUi.clearModal)
 })
