@@ -65,7 +65,7 @@ const getEntries = function (data) {
 const deleteEntry = function (data) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/entries/' + data.entry.id,
+    url: config.apiUrl + '/entries/' + data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

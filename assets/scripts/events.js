@@ -3,12 +3,6 @@ const authUi = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
 const authApi = require('./api')
 
-// const passId = function (event) {
-//   event.preventDefault()
-//   const passTheId = $(event.target).attr('data-id')
-//   $('#data-id-number').val(passTheId)
-// }
-
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -62,22 +56,13 @@ const onGetEntries = function (event) {
 
 const onDeleteEntry = function (event) {
   event.preventDefault()
-  // const entryId = $(event.target).closest('button').attr('data-id')
-  // const entryId = $(event.target).('data-id')
-  // const data = $(event.target).attr('data-id')
-
-  const data = getFormFields(event.target)
+  // const entryId = $(event.target).attr('data-id')
+  const data = $(event.target).data('id')
   authApi.deleteEntry(data)
-    .then(authUi.deleteEntrySuccess, authUi.getEntriesSuccess(data))
+    // .then(authUi.deleteEntrySuccess, authUi.getEntriesSuccess(data))
+    .then(authUi.exitEntries)
+    .then(authApi.onGetEntries)
     .catch(authUi.deleteEntryFailure)
-}
-
-const onEditEntry = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  authApi.editEntry(data)
-    .then(authUi.editEntrySuccess, authUi.getEntriesSuccess(data))
-    .catch(authUi.editEntryFailure)
 }
 
 module.exports = {
@@ -87,6 +72,5 @@ module.exports = {
   onChangePassword,
   onCreateEntry,
   onGetEntries,
-  onDeleteEntry,
-  onEditEntry
+  onDeleteEntry
 }
