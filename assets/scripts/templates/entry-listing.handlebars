@@ -1,10 +1,18 @@
 {{#each entries as |entry|}}
 
-  <h4 data-id="{{entry.id}}" class="my-entry">Entry Number: {{entry.id}}</h4>
-  <h4 data-id="{{entry.id}}" class="my-entry">Thought: {{entry.thought}}</h4>
-  <h4 data-id="{{entry.id}}" class="my-entry">Cognitive Distortion: {{entry.distortion}}</h4>
-  <h4 data-id="{{entry.id}}" class="my-entry">Rational Response: {{entry.response}}</h4>
+<div class="handlebars" id="entry-{{entry.id}}">
+  <div>
+    <h4 data-id="{{entry.id}}" class="my-entry"><u>Entry Date:</u> {{entry.date}}</h4>
+    <h4 data-id="{{entry.id}}" class="my-entry"><u>Thought:</u> {{entry.thought}}</h4>
+    <h4 data-id="{{entry.id}}" class="my-entry"><u>Cognitive Distortion:</u> {{entry.distortion}}</h4>
+    <h4 data-id="{{entry.id}}" class="my-entry"><u>Rational Response:</u> {{entry.response}}</h4>
+  <form class='delete-entry' data-id="{{entry.id}}" id="entry-{{entry.id}}">
 
+
+  <button id="delete-button-style-{{entry.id}}" style="margin: 15px 5px;" type= "submit" class="btn btn-danger btn-style delete-entry" data-id='{{entry.id}}'>DELETE</button>
+  </form>
   <hr/>
+  </div>
+</div>
 
 {{/each}}

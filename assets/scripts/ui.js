@@ -6,7 +6,7 @@ const refreshWelcome = function () {
   $('#welcome').hide()
   $('#come-back').fadeIn(2000)
   $('#come-back').fadeOut(6000)
-  $('#welcome').delay(4000).fadeIn(4500)
+  // $('#welcome').delay(4000).fadeIn(4500)
 }
 
 const introWelcome = function () {
@@ -41,7 +41,8 @@ const clearModalAlert = function (event) {
   $('.modal-alert').text('')
 }
 
-const signUpSuccess = function (event) {
+const signUpSuccess = function (signUp) {
+  store.user = signUp.user
   $('#sign-in, #sign-in-button').show()
   $('#sign-up').hide()
   resetAllForms()
@@ -115,9 +116,10 @@ const createEntryFailure = function (event) {
 }
 
 const getEntriesSuccess = function (data) {
-  $('.get-entries-view, #exit-entries, #delete-id-form, #edit-form').show()
-  clearModalAlert()
+  store.entries = data.entries
   const getEntryHtml = getEntryHandlebars({ entries: data.entries })
+  $('.get-entries-view, #exit-entries').show()
+  clearModalAlert()
   $('.get-entries-view').html(getEntryHtml)
   $('#sign-out, #change-password, #change-password-button, #entry-button, #get-entries, #delete-entry-button, .message-main').hide()
   $('#delete-message, #edit-alert').text('')
@@ -129,22 +131,13 @@ const getEntriesFailure = function (event) {
   $('input').val('')
 }
 
-const deleteEntrySuccess = function (event) {
-  $('#delete-message').text('You have successfully deleted this entry. Click refresh.')
-
-  resetAllForms()
-  clearModalAlert()
+const deleteEntrySuccess = function (data) {
+  store.entries = data.entries
 }
 
 const deleteEntryFailure = function (event) {
   $('#delete-message').text('Entry may not exist. Click refresh.')
   $('input').val('')
-}
-
-const editEntrySuccess = function (event) {
-  $('#edit-alert').text('You have successully edited this entry. Please click refresh.')
-  resetAllForms()
-  clearModalAlert()
 }
 
 const editEntryFailure = function (event) {
@@ -170,7 +163,6 @@ module.exports = {
   getEntriesFailure,
   deleteEntrySuccess,
   deleteEntryFailure,
-  editEntrySuccess,
   editEntryFailure,
   getEntryHandlebars,
   exitEntries,
