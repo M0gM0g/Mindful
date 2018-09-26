@@ -140,6 +140,17 @@ input[type=password]:focus {
 
 .form-control {
   margin: 5px;
+  display: block;
+  width: 98%;
+  border: 1px solid black;
+}
+
+select {
+  margin-top: 6px;
+  margin-bottom: 5px;
+  margin-left: 6px;
+  height: 30px;
+  border: 1px solid black;
 }
 
 .button:hover {
@@ -189,8 +200,8 @@ input[type=password]:focus {
   background-color: #fefefe;
   margin: 5% auto 15%; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  padding: 10px;
+  width: 85%; /* Could be more or less, depending on screen size */
+  padding: 20px;
 }
 
 /* Style the horizontal ruler */
