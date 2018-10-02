@@ -1,3 +1,4 @@
+{{#if entries}}
 {{#each entries as |entry|}}
 
 <div class="handlebars" id="entry-{{entry.id}}">
@@ -16,3 +17,9 @@
 </div>
 
 {{/each}}
+
+{{else}}
+<div>
+  <h4> You currently have no entries. </h4>
+</div>
+{{/if}}
