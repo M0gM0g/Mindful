@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Mindful</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+      <body>
+
+      <div class="container">
+
+<!-- Mindful Logo Display Main -->
+      <div class="logo-main" class="col">
+      <h1>Mindful.</h1>
+      </div>
+<!-- Mindful Logo Display Main -->
+
+<!-- Mindful Brain .png -->
+      <div class="brain-main">
+        <img src="https://i.imgur.com/KArBaXL.png" alt="blue brain">
+      </div>
+<!-- Mindful Brain .png -->
+
+
+<!-- message box -->
+<div class="message-main" class="col">
+<!-- <h3 id="welcome"> Welcome to Mindful.  </h3> -->
+<h4 id="come-back"> Come back anytime. We'll be here...  </h4>
+<h4 id="intro"> Mindful is a place to get your thoughts out... </h4>
+<h3 id="welcome"> Welcome to Mindful.  </h3>
+<h4 id="intro2"> and help you better understand why they were there in the first place... </h4>
+</div>
+<!-- message box -->
+
+
+<div class="get-entries-view" class="col">
+<h3></h3>
+</div>
+<div>
+<button class="button" id="exit-entries">Exit</button>
+</div>
+
+<div class="col" class="my-entries">
+</div>
+
+
+
+<button class="button" id="entry-button" onclick="document.getElementById('entry').style.display='block'">Create An Entry</button>
+
+
+<div id="entry" class="modal">
+  <form id="entry-form" class="modal-content" action="/action_page.php">
+    <!-- <div class="container"> -->
+      <h1>Entry</h1>
+      <p>Please fill out this form to create an entry.</p>
+      <p class='modal-alert'></p>
+      <hr>
+
+      <!-- <input type="date" class="form-control" name="entry[date]" id="date"> -->
+      <span data-toggle="tooltip" data-placement="top" title="Please enter the date." class="label">Date</span>
+        <input type="date" class="form-control" name="entry[date]" id="date" required>
+
+      <span data-toggle="tooltip" data-placement="top" title="Write down the cause and feeling of your emotional distress." class="label label-default">Automatic Thought</span>
+        <input type="text" class="form-control" name="entry[thought]" id="thought" required>
+
+
+
+        <span data-toggle="tooltip" data-placement="top" title="Please select a Cognitive Distortion from the list below." class="label label default" class="form-control">Cognitive Distortion</span>
+                <br/>
+                <select name="entry[distortion]">
+                  <option value="All-or-Nothing Thinking">All-or-Nothing Thinking</option>
+                  <option value="Overgeneralization">Overgeneralization</option>
+                  <option value="Mental Filter">Mental Filter</option>
+                  <option value="Disqualifying the Positive">Disqualifying the Positive</option>
+                  <option value="Jumping to Conclusions">Jumping to Conclusions</option>
+                  <option value="Magnification/Minimization">Magnification/Minimization</option>
+                  <option value="Emotional Reasoning">Emotional Reasoning</option>
+                  <option value="Should Statement">Should Statement</option>
+                  <option value="Labeling/Mislabeling">Labeling/Mislabeling</option>
+                  <option value="Personalization">Personalization</option>
+                </select>
+      <br/>
+
+
+
+
+
+        <span data-toggle="tooltip" data-placement="top" title="Write a more rational, less upsetting response here. Make sure you believe in your rebuttal to self-criticism. This rational response can take into account what was illogical and erroneous about your self-critical automatic thought." class="label label-default">Rational Response</span>
+    <input type="text" class="form-control"  name="entry[response]" id="response" required>
+
+
+      <div class="clearfix">
+        <button id="reset" class="button" type="button" onclick="document.getElementById('entry').style.display='none'" class="cancelbtn">Cancel</button>
+        <button id="reset10" class="button" type="submit" class="submit">Submit</button>
+      </div>
+    <!-- </div> -->
+  </form>
+</div>
+
+
+
+<div>
+<button class="button" id="get-entries">Show My Entries</button>
+</div>
+
+
+<!-- modal button sign up -->
+<button class="button" id="sign-up-button" onclick="document.getElementById('sign-up').style.display='block'">Sign Up</button>
+<!-- modal button sign up -->
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="sign-up" class="modal">
+  <form id="sign-up-form" class="modal-content" action="/action_page.php">
+    <!-- <div class="container"> -->
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <p class='modal-alert'></p>
+      <hr>
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="credentials[email]" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="credentials[password]" required>
+
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="credentials[password_confirmation]" required>
+
+
+      <div class="clearfix">
+        <button id="reset5" class="button" type="button" onclick="document.getElementById('sign-up').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="signup">Sign Up</button>
+      </div>
+    <!-- </div> -->
+  </form>
+</div>
+
+
+<div>
+<button class="button" id="get-info">How To Use Mindful</button>
+</div>
+
+
+<!-- modal button sign in -->
+<button class="button" id="sign-in-button" onclick="document.getElementById('sign-in').style.display='block'">Sign In</button>
+<!-- modal button sign in -->
+
+<!-- The Modal (contains the Sign In form) -->
+<div id="sign-in" class="modal">
+  <form id="sign-in-form" class="modal-content" action="/action_page.php">
+    <!-- <div class="container"> -->
+      <h1>Sign In</h1>
+      <p>Please fill in this form to sign in.</p>
+      <p class='modal-alert'></p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="credentials[email]" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="credentials[password]" required>
+
+
+      <div class="clearfix">
+        <button id="reset3" class="button" type="button" onclick="document.getElementById('sign-in').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="signin">Sign In</button>
+      </div>
+    <!-- </div> -->
+  </form>
+</div>
+
+<div>
+<button class="button" id="sign-out">Sign Out</button>
+</div>
+
+
+
+<!-- change password button -->
+<button class="button" id="change-password-button" onclick="document.getElementById('change-password').style.display='block'">Change Password</button>
+<!-- change password button -->
+
+<!-- change password  -->
+
+<div id="change-password" class="modal">
+  <form id="change-password-form" class="modal-content" action="/action_page.php">
+    <!-- <div class="container"> -->
+      <h1>Change Password</h1>
+      <p>Please fill in this form to change password.</p>
+      <p class='modal-alert'></p>
+      <hr>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="passwords[old]" required>
+
+      <label for="psw"><b>New Password</b></label>
+      <input type="password" placeholder="Enter New Password" name="passwords[new]" required>
+
+
+      <div class="clearfix">
+        <button id="reset4" class="button" type="button" onclick="document.getElementById('change-password').style.display='none'" class="cancelbtn">Cancel</button>
+        <button class="button" type="submit" class="change-password">Change Password</button>
+      </div>
+    <!-- </div> -->
+  </form>
+</div>
+</div>
+
+
+  </body>
+</html>
