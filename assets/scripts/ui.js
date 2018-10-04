@@ -62,7 +62,7 @@ const signInSuccess = function (data) {
   // $('#sign-up').hide()
   // $('#sign-in-button').hide()
   // $('#sign-up-button').hide()
-  $('#change-password-button').show()
+  $('#change-password-button, #get-info').show()
   $('#entry-button, #get-entries, #edit-button, #delete-entry-button').show()
   resetAllForms()
   clearModalAlert()

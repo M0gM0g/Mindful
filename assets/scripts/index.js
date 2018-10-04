@@ -12,7 +12,7 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-$('#come-back, #intro, #intro2, .message-main, #edit-form').hide()
+$('#come-back, #intro, #intro2, .message-main, #edit-form, #get-info').hide()
 $('#sign-out, .get-entries-view, #exit-entries').hide()
 $('#change-password, #change-password-button').hide()
 $('#entry-button, #delete-id-form').hide()
